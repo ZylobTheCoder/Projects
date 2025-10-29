@@ -1,0 +1,6 @@
+n = float(input('Enter a number for the program to generate a table: '))
+m = int(input('Till which number would like the table to go to? please enter an whole number: '))
+o = m+1
+for i in range(1,o):
+    print(n,'x',i,'=',n*i)
+    

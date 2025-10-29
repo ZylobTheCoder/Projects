@@ -1,0 +1,20 @@
+
+Bill = float(input('Enter the original bill: '))
+tip = float(input('Enter the tip given: '))
+Tip_percent = (tip/Bill)*100
+print('your tip % is',Tip_percent)
+
+while True:
+  Q = input('Wanna try again? (y/n)')
+
+  if Q == 'y':
+    Bill = float(input('Enter the original bill: '))
+    tip = float(input('Enter the tip given: '))
+    Tip_percent = (tip/Bill)*100
+    print('your tip % is',Tip_percent)       
+  elif Q == 'n':
+    print('Okay,thanks for using the app')
+    break
+    exit
+  else:
+     print('try again') 

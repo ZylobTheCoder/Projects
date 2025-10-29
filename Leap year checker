@@ -1,0 +1,26 @@
+import datetime
+cr = datetime.datetime.now().year
+while True:
+ a = input('Would you like to now whether the current year is leap year or the year you will enter now? if its the current year, please type y, or else type n: ')
+ if a == 'y':
+    if cr%4 == 0:
+        print('The current year is a leapyear')
+    else:
+        print('The current year is NOT a leapyear')    
+        break
+ elif a == 'n':
+    b = int(input('Please enter which year you would like to know about?: '))
+    
+
+    if b%4 == 0:
+        print('The year you entered is a leap year')
+    elif b%4 != 0:
+        print('The year you entered is NOT a leap year')
+        break
+        
+    else:
+        print('Error,Please try again')
+        
+
+
+

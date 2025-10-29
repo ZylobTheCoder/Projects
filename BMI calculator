@@ -1,0 +1,64 @@
+# Ask units
+weight_unit = input("Do you prefer Kilograms or Pounds? (k/p): ").lower()
+height_unit = input("Do you prefer height in cm or feet & inches? (c/f): ").lower()
+
+# Get weight
+if weight_unit == 'k':
+    weight = float(input("Enter your weight in kilograms: "))
+elif weight_unit == 'p':
+    weight = float(input("Enter your weight in pounds: "))
+else:
+    print("Invalid weight unit!"); exit()
+
+# Get height
+if height_unit == 'c':
+    height_cm = float(input("Enter your height in cm: "))
+    height_m = height_cm / 100
+elif height_unit == 'f':
+    feet = float(input("Enter feet: "))
+    inches = float(input("Enter inches: "))
+    height_in = feet * 12 + inches
+else:
+    print("Invalid height unit!"); exit()
+
+# Calculate BMI
+if weight_unit == 'k' and height_unit == 'c':
+    bmi = weight / (height_m ** 2)
+elif weight_unit == 'p' and height_unit == 'f':
+    bmi = 703 * weight / (height_in ** 2)
+elif weight_unit == 'k' and height_unit == 'f':
+    bmi = weight / ((height_in * 0.0254) ** 2)  # convert inches → meters
+elif weight_unit == 'p' and height_unit == 'c':
+    bmi = 703 * weight / ((height_cm / 2.54) ** 2)  # cm → inches
+
+print(f"Your BMI is: {bmi:.2f}")
+
+import tkinter as tk
+from tkinter import messagebox
+
+def calculate_bmi():
+    weight = float(weight_entry.get())
+    height = float(height_entry.get()) / 100
+    bmi = weight / (height ** 2)
+    messagebox.showinfo("BMI Result", f"Your BMI is {bmi:.2f}")
+
+# Window
+root = tk.Tk()
+root.title("BMI Calculator")
+
+# Widgets
+tk.Label(root, text="Weight (kg):").grid(row=0, column=0)
+weight_entry = tk.Entry(root)
+weight_entry.grid(row=0, column=1)
+
+tk.Label(root, text="Height (cm):").grid(row=1, column=0)
+height_entry = tk.Entry(root)
+height_entry.grid(row=1, column=1)
+
+tk.Button(root, text="Calculate BMI", command=calculate_bmi).grid(row=2, column=0, columnspan=2)
+
+root.mainloop()
+     
+
+           
+
